@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Farmer Weather Alert System- Command Center</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 1. TOP STATUS BAR (Pulsing Green) -->
+    <div id="status-bar" class="status-safe">
+        <p><span class="pulse">●</span> SYSTEM ONLINE: All Good for Farming ✅</p>
+    </div>
+
+    <div class="main-container">
+        
+        <!-- 2. HEADER & SEARCH -->
+        <header>
+            <h1 class="dashboard-title">Smart Farmer <span>Weather Alert</span></h1>
+            <div class="search-box">
+                <div class="input-wrapper">
+                    <img src="./search.jpg" alt="🔍" class="search-icon">
+                    <input type="text" id="loc-input" placeholder="Search District (e.g. Kigali, Musanze)">
+                </div>
+                <button id="get-weather-btn">CHECK AREA</button>
+            </div>
+        </header>
+
+        <!-- 3. CURRENT WEATHER (The Glass-Morph Card) -->
+        <section class="glass-morph">
+            <span class="live-badge">WEATHER SATELLITE Info</span>
+            <h1 id="city-name">Kigali, Rwanda</h1>
+            <p id="current-date">Wednesday, April 15</p>
+            
+            <div class="main-weather-display">
+                <div class="icon-glow">
+                    <img src="./cloud-sun.jpg" id="main-weather-icon" alt="Weather Icon">
+                </div>
+                <h2 id="main-temp">23°C</h2>
+            </div>
+            
+            <div class="details-grid">
+                <div class="stat-box">
+                    <img src="./rain-drop.jpg" alt="Rain">
+                    <p>PRECIP</p>
+                    <span id="rain-val">10%</span>
+                </div>
+                <div class="stat-box">
+                    <img src="./temperature.png" alt="Temp">
+                    <p>TEMP</p>
+                    <span id="high-val">28°C</span>
+                </div>
+                <div class="stat-box">
+                    <img src="./humidity.png" alt="Hum">
+                    <p>HUMIDITY</p>
+                    <span id="hum-val">65%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 5-DAY FORECAST -->
+        <section>
+            <h3 class="section-label">5-DAY WEATHER FORECAST</h3>
+            <div class="forecast-grid">
+                <div class="day-card">
+                    <p>THU</p>
+                    <img src="./sun.jpg" alt="Icon">
+                    <p class="day-temp">26°C</p>
+                </div>
+                <div class="day-card">
+                    <p>FRI</p>
+                    <img src="./cloud2.jpg" alt="Icon">
+                    <p class="day-temp">22°C</p>
+                </div>
+                <div class="day-card">
+                    <p>SAT</p>
+                    <img src="cloud-sun.jpg" alt="Icon">
+                    <p class="day-temp">24°C</p>
+                </div>
+                <div class="day-card">
+                    <p>SUN</p>
+                    <img src="./sun.jpg" alt="Icon">
+                    <p class="day-temp">27°C</p>
+                </div>
+                <div class="day-card">
+                    <p>MON</p>
+                    <img src="./rain-drop.jpg" alt="Icon">
+                    <p class="day-temp">21°C</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CALL TO ACTION -->
+        <div class="cta-box">
+            <h3>Want 24/7 Harvest Protection?</h3>
+            <p>Register your farm for instant satellite alerts.</p>
+            <a href="register.html" class="cta-button"> AC🌱IVATE SMART DEFENSE</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>System powered by INGOBYI PROGRAM</p>
+    </footer>
+
+</body>
+</html>
+
+
+
+

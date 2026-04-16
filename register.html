@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Farmer - Secure Network</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body class="dashboard-bg">
+
+    <!-- 1. ENCRYPTION STATUS BAR -->
+    <div id="status-bar" class="status-safe">
+        <p><span class="pulse">●</span> 🔒 SATELLITE ENCRYPTION ACTIVE - SECURE NETWORK</p>
+    </div>
+
+    <div class="main-container">
+        <header>
+            <a href="index.html" class="back-link">← Return to Command Center</a>
+            <h1 class="dashboard-title">Activate <span>Smart Defense</span></h1>
+            <p>Join the elite network of Rwandan farmers using AI-powered protection.</p>
+        </header>
+
+        <!-- 2. THE GLASS-MORPH FORM -->
+        <section class="glass-morph cool-form">
+            <span class="live-badge">SECURE REGISTRATION</span>
+            <form id="registration-form">
+                
+                <!-- Farmer Info -->
+                <div class="form-group">
+                    <label>Farmer Identity</label>
+                    <input type="text" id="farmer-name" placeholder="Enter Full Name" required>
+                </div>
+
+                <!-- SMART CONTACT BLOCK -->
+                <div class="form-group">
+                    <label>Alert Delivery Channels</label>
+                    <input type="tel" id="farmer-phone" placeholder="Phone: +250 78X XXX XXX">
+                    <p class="divider-text">— AND / OR —</p>
+                    <input type="email" id="farmer-email" placeholder="Email: parent@example.com">
+                </div>
+
+                <!-- DISTRICT PICKER -->
+                <div class="form-group">
+                    <label>Operation District</label>
+                    <select id="farmer-loc">
+                        <option value="Kigali">Kigali City (HQ)</option>
+                        <option value="Musanze">Musanze (North)</option>
+                        <option value="Rubavu">Rubavu (West)</option>
+                        <option value="Kayonza">Kayonza (East)</option>
+                        <option value="Huye">Huye (South)</option>
+                    </select>
+                </div>
+
+                <!-- PREFERENCES ROW -->
+                <div class="form-row" style="display: flex; gap: 20px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label>Primary Crop</label>
+                        <select id="crop-type">
+                            <option value="maize">Maize</option>
+                            <option value="coffee">Coffee</option>
+                            <option value="potatoes">Irish Potatoes</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Alert Mode</label>
+                        <div class="radio-options">
+                            <label><input type="radio" name="freq" value="instant" checked> Instant</label>
+                            <label><input type="radio" name="freq" value="daily"> Daily</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- THE GREAT ROCKET BUTTON -->
+                <button type="submit" class="cta-button">
+                     ACTIVATE SMART DEFENSE🌿
+                </button>
+            </form>
+        </section>
+
+        <footer>
+            <div class="program-logo">
+                <p>System Powered by INGOBYI PROGRAM</p>
+                <h3 style="color: var(--strong-green); font-weight: 900; margin: 0;">INGOBYI PROGRAM</h3>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
