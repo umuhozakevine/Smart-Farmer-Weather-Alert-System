@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Contact AgriAlert — enquiries about weather alerts and farm registration.">
+    <meta name="theme-color" content="#144047">
+    <title>Contact — AgriAlert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-contact">
+    <a class="visually-hidden" href="#contact-main">Skip to form</a>
+
+    <div class="app">
+        <div id="status-bar" class="status-safe" role="status">
+            <p><span class="pulse" aria-hidden="true">●</span> Contact AgriAlert</p>
+        </div>
+
+        <header class="site-nav">
+            <a class="brand-link" href="index.html">AgriAlert <span>Weather alerts</span></a>
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="alerts.html">My alerts</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+        </header>
+
+        <main id="contact-main" class="main-area">
+            <div class="main-container">
+                <header>
+                    <h1 class="dashboard-title">Contact <span>us</span></h1>
+                    <p class="lead">Send an enquiry about weather alerts or farm registration. When you submit, your usual email application opens with your message addressed to AgriAlert.</p>
+                    <p>Office email: <a href="mailto:contact@agrialert.rw">contact@agrialert.rw</a> · Rwanda (Central Africa Time, UTC+2)</p>
+                    <figure class="content-banner page-inline-banner">
+                        <img src="images/crope.jpeg" width="960" height="264" alt="Contact AgriAlert for weather and farm support" loading="lazy" decoding="async">
+                    </figure>
+                </header>
+
+                <section class="glass-morph cool-form">
+                    <span class="live-badge">ENQUIRY</span>
+                    <form id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" name="contact-name" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" name="contact-email" autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" name="contact-subject" placeholder="Subject line">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-body">Message</label>
+                            <textarea id="contact-body" name="contact-body" required placeholder="Write your question or request"></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Send message</button>
+                        <p id="contact-form-message" role="status" aria-live="polite"></p>
+                    </form>
+                </section>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2026 AgriAlert · Smart Farmer Weather Alert</p>
+        </footer>
+    </div>
+
+    <script src="app.js" defer></script>
+</body>
+</html>

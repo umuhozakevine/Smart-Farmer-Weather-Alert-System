@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Your farm alert registrations with AgriAlert.">
+    <meta name="theme-color" content="#144047">
+    <title>My alerts — AgriAlert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-alerts">
+    <a class="visually-hidden" href="#alerts-main">Skip to table</a>
+
+    <div class="app">
+        <div id="status-bar" class="status-safe" role="status">
+            <p><span class="pulse" aria-hidden="true">●</span> Your farm registrations</p>
+        </div>
+
+        <header class="site-nav">
+            <a class="brand-link" href="index.html">AgriAlert <span>Weather alerts</span></a>
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="alerts.html" aria-current="page">My alerts</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </header>
+
+        <main id="alerts-main" class="main-area">
+            <div class="main-container">
+                <header>
+                    <h1 class="dashboard-title">My alerts <span>Registered farms</span></h1>
+                    <p class="lead">A list of farms you have registered with AgriAlert. You can remove entries from this list at any time.</p>
+                    <figure class="content-banner page-inline-banner">
+                        <img src="images/cropf.jpeg" width="960" height="264" alt="Registered farm alert records" loading="lazy" decoding="async">
+                    </figure>
+                </header>
+
+                <section class="glass-morph" aria-labelledby="reg-list-heading">
+                    <h2 id="reg-list-heading" class="section-label section-heading-tight">Registrations</h2>
+                    <div id="alerts-root"></div>
+                    <p class="alerts-toolbar">
+                        <a href="register.html">Add a registration</a>
+                        <span aria-hidden="true"> · </span>
+                        <button type="button" id="clear-registrations" class="cta-button btn-inline">Clear all</button>
+                    </p>
+                </section>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2026 AgriAlert · Smart Farmer Weather Alert</p>
+        </footer>
+    </div>
+
+    <script src="app.js" defer></script>
+</body>
+</html>

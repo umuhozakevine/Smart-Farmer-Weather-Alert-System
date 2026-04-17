@@ -2,110 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Smart Farmer Weather Alert System- Command Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="AgriAlert — current weather and five-day forecasts for districts across Rwanda.">
+    <meta name="theme-color" content="#144047">
+    <title>Home — AgriAlert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <link href="https://googleapis.com" rel="stylesheet">
 </head>
-<body>
+<body class="page-home">
+    <a class="visually-hidden" href="#main">Skip to main content</a>
 
-    <!-- 1. TOP STATUS BAR (Pulsing Green) -->
-    <div id="status-bar" class="status-safe">
-        <p><span class="pulse">●</span> SYSTEM ONLINE: All Good for Farming ✅</p>
-    </div>
+    <div class="app">
+        <div id="status-bar" class="status-safe" role="status" aria-live="polite">
+            <p><span class="pulse" aria-hidden="true">●</span> Service active — Rwanda districts</p>
+        </div>
 
-    <div class="main-container">
-        
-        <!-- 2. HEADER & SEARCH -->
-        <header>
-            <h1 class="dashboard-title">Smart Farmer <span>Weather Alert</span></h1>
-            <div class="search-box">
-                <div class="input-wrapper">
-                    <img src="./search.jpg" alt="🔍" class="search-icon">
-                    <input type="text" id="loc-input" placeholder="Search District (e.g. Kigali, Musanze)">
-                </div>
-                <button id="get-weather-btn">CHECK AREA</button>
-            </div>
+        <header class="site-nav">
+            <a class="brand-link" href="index.html">AgriAlert <span>Weather alerts</span></a>
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="alerts.html">My alerts</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </header>
 
-        <!-- 3. CURRENT WEATHER (The Glass-Morph Card) -->
-        <section class="glass-morph">
-            <span class="live-badge">WEATHER SATELLITE Info</span>
-            <h1 id="city-name">Kigali, Rwanda</h1>
-            <p id="current-date">Wednesday, April 15</p>
-            
-            <div class="main-weather-display">
-                <div class="icon-glow">
-                    <img src="./cloud-sun.jpg" id="main-weather-icon" alt="Weather Icon">
-                </div>
-                <h2 id="main-temp">23°C</h2>
-            </div>
-            
-            <div class="details-grid">
-                <div class="stat-box">
-                    <img src="./rain-drop.jpg" alt="Rain">
-                    <p>PRECIP</p>
-                    <span id="rain-val">10%</span>
-                </div>
-                <div class="stat-box">
-                    <img src="./temperature.png" alt="Temp">
-                    <p>TEMP</p>
-                    <span id="high-val">28°C</span>
-                </div>
-                <div class="stat-box">
-                    <img src="./humidity.png" alt="Hum">
-                    <p>HUMIDITY</p>
-                    <span id="hum-val">65%</span>
-                </div>
-            </div>
-        </section>
+        <main id="main" class="main-area">
+            <div class="main-container">
+                <header>
+                    <h1 class="dashboard-title">Smart Farmer <span>Weather Alert</span></h1>
+                    <p class="lead">Look up current conditions and the five-day outlook for your district.</p>
+                    <div class="home-figures" aria-hidden="true">
+                        <figure class="home-figure">
+                            <img src="images/crop.jpeg" width="520" height="280" alt="" loading="lazy" decoding="async">
+                        </figure>
+                        <figure class="home-figure">
+                            <img src="images/cropb.jpeg" width="520" height="280" alt="" loading="lazy" decoding="async">
+                        </figure>
+                    </div>
+                    <div class="search-box">
+                        <div class="input-wrapper search-field">
+                            <label class="visually-hidden" for="loc-input">Search location</label>
+                            <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="7"/>
+                                <path d="M20 20l-3-3"/>
+                            </svg>
+                            <input type="text" id="loc-input" placeholder="Type or choose a district" autocomplete="off" aria-autocomplete="list" aria-controls="district-suggestions" aria-expanded="false" role="combobox">
+                            <ul id="district-suggestions" class="district-suggestions" hidden role="listbox" aria-label="Rwanda districts"></ul>
+                        </div>
+                        <button type="button" id="get-weather-btn">CHECK AREA</button>
+                    </div>
+                </header>
 
-        <!-- 4. 5-DAY FORECAST -->
-        <section>
-            <h3 class="section-label">5-DAY WEATHER FORECAST</h3>
-            <div class="forecast-grid">
-                <div class="day-card">
-                    <p>THU</p>
-                    <img src="./sun.jpg" alt="Icon">
-                    <p class="day-temp">26°C</p>
-                </div>
-                <div class="day-card">
-                    <p>FRI</p>
-                    <img src="./cloud2.jpg" alt="Icon">
-                    <p class="day-temp">22°C</p>
-                </div>
-                <div class="day-card">
-                    <p>SAT</p>
-                    <img src="cloud-sun.jpg" alt="Icon">
-                    <p class="day-temp">24°C</p>
-                </div>
-                <div class="day-card">
-                    <p>SUN</p>
-                    <img src="./sun.jpg" alt="Icon">
-                    <p class="day-temp">27°C</p>
-                </div>
-                <div class="day-card">
-                    <p>MON</p>
-                    <img src="./rain-drop.jpg" alt="Icon">
-                    <p class="day-temp">21°C</p>
+                <section class="glass-morph" aria-labelledby="city-name">
+                    <span class="live-badge">WEATHER INFO</span>
+                    <h2 id="city-name">Kigali, Rwanda</h2>
+                    <p id="current-date">—</p>
+                    <p id="weather-error" role="alert"></p>
+
+                    <div class="weather-map-row">
+                        <div class="weather-col">
+                            <div class="main-weather-display">
+                                <div class="icon-glow">
+                                    <span id="main-weather-emoji" class="weather-emoji" aria-hidden="true">🌤️</span>
+                                </div>
+                                <p id="main-temp">—°C</p>
+                            </div>
+
+                            <div class="details-grid">
+                                <div class="stat-box">
+                                    <span class="stat-icon" aria-hidden="true">💧</span>
+                                    <p>PRECIP CHANCE</p>
+                                    <span id="rain-val">—</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-icon" aria-hidden="true">🌡️</span>
+                                    <p>TODAY HIGH</p>
+                                    <span id="high-val">—</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-icon" aria-hidden="true">💨</span>
+                                    <p>HUMIDITY</p>
+                                    <span id="hum-val">—</span>
+                                </div>
+                            </div>
+                        </div>
+                        <aside class="map-col" aria-labelledby="map-heading">
+                            <h3 id="map-heading" class="map-heading">District on the map</h3>
+                            <div id="district-map" class="district-map" role="application" aria-label="Map centred on your search result"></div>
+                            <p class="map-caption">The pin matches your search; forecast uses the same coordinates.</p>
+                        </aside>
+                    </div>
+                </section>
+
+                <section aria-labelledby="forecast-heading">
+                    <h3 id="forecast-heading" class="section-label">5-day forecast</h3>
+                    <div class="forecast-grid"></div>
+                </section>
+
+                <div class="cta-box">
+                    <h3>Harvest protection</h3>
+                    <p>Register your farm for alerts by district and crop.</p>
+                    <a href="register.html" class="cta-button">Register for alerts</a>
                 </div>
             </div>
-        </section>
+        </main>
 
-        <!-- 5. CALL TO ACTION -->
-        <div class="cta-box">
-            <h3>Want 24/7 Harvest Protection?</h3>
-            <p>Register your farm for instant satellite alerts.</p>
-            <a href="register.html" class="cta-button"> AC🌱IVATE SMART DEFENSE</a>
-        </div>
+        <footer class="site-footer">
+            <p>© 2026 AgriAlert · Smart Farmer Weather Alert</p>
+        </footer>
     </div>
 
-    <footer>
-        <p>System powered by INGOBYI PROGRAM</p>
-    </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
+    <script src="app.js" defer></script>
 </body>
 </html>
-
-
-
-
